@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-demo-main
+spec:
+  selector:
+    matchLabels:
+      app: kubernetes-demo-main
+  replicas: 1
+  template: 
+    metadata:
+      labels:
+        app: kubernetes-demo-main
+    spec:
+      containers: 
+        - name: kubernetes-demo-main
+          image: kubernetes-demo-main
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+            
